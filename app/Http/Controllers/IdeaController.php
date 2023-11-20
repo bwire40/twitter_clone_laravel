@@ -28,7 +28,14 @@ class IdeaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //store/create our idea
+
+
+        $idea = Idea::create([
+            "content" => request()->get("content"),
+        ]);
+
+        return redirect()->route("home")->with("success", "Twit posted successfully!");
     }
 
     /**

@@ -12,12 +12,7 @@ class DashboardController extends Controller
     {
 
 
-        $idea = new idea([
-            "content" => "hello",
-            "likes" => 200,
-        ]);
 
-        $idea->save();
 
 
         // dump(Idea::all());
