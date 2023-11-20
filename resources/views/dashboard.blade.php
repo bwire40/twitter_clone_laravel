@@ -60,7 +60,7 @@
                                         </span>{{ $idea->created_at }}</span>
                                 </div>
                             </div>
-                            <div>
+                            {{-- <div>
                                 <div class="mb-3">
                                     <textarea class="fs-6 form-control" rows="1"></textarea>
                                 </div>
@@ -90,7 +90,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 

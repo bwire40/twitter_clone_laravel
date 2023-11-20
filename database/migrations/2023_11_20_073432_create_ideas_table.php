@@ -8,11 +8,6 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * varchar 255 - idea
-     * likes interger 0
-     * created_at
-     * updated_at
      */
     public function up(): void
     {
