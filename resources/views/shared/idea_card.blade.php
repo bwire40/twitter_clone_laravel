@@ -1,22 +1,35 @@
-<div class="flex flex-col justify-center items-start">
-    <div class="px-3 pt-4 pb-2">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <img style="width:50px" class="mr-3 rounded-full rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
-                <div>
-                    <h5 class="mb-0"><a href="#"> Mario
-                        </a></h5>
+<div class="flex flex-col justify-center items-start w-full">
+    <div class="px-3 pt-4 pb-2 w-full">
+        <div class="flex items-center justify-between w-full">
+            <div class="flex items-center justify-between w-full mb-4">
+                <div class="flex justify-center items-center">
+                    <img style="width:50px" class="mr-3 rounded-full rounded-circle"
+                        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                    <div>
+                        <h5 class="mb-0"><a href="#"> Mario
+                            </a></h5>
+                    </div>
+                </div>
+
+                <div class="w-4/12 flex justify-between items-center">
+
+                    <form action="{{ route('idea.destroy', $idea->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="font-semibold text-red-500"><x-icons.trash /></button>
+                    </form>
+
+                    <button class="font-semibold text-blue-500"><x-icons.pencil-alt /></button>
                 </div>
             </div>
         </div>
     </div>
     <div class="">
-        <p class="text-slate-500 text-muted">
+        <p class="text-slate-500 text-muted mb-3">
             {{ $idea->content }}
         </p>
-        <div class="flex justify-between">
-            <div>
+        <div class="flex justify-between items-center">
+            <div class="mr-4">
                 <a href="#" class="text-slate-700 font-bold"> <span class="text-red-500 fas fa-heart me-1">
                     </span> {{ $idea->likes }} </a>
             </div>

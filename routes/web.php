@@ -25,3 +25,7 @@ Route::get('/terms', [DashboardController::class, 'terms'])->name('terms');
 
 // create an idea route
 Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
+
+
+// delete idea
+Route::delete('/idea/{id}', [IdeaController::class, 'destroy'])->name('idea.destroy');

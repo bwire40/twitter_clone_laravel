@@ -23,14 +23,18 @@
 
             {{-- submit form ends --}}
             <hr>
+            <div class="mt-3">
+                {{ $ideas->links() }}
+            </div>
             @foreach ($ideas as $idea)
-                <div class="mt-3 border-2 border-slate-200 px-4 rounded-sm h-fit">
+                <div class="mt-3 mb-3 border-2 border-slate-200 px-4 rounded-sm h-fit">
 
                     {{-- idea card --}}
                     @include('shared.idea_card')
 
                 </div>
             @endforeach
+            {{ $ideas->links() }}
         </div>
 
 
