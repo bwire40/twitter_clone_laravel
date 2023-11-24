@@ -16,10 +16,7 @@
                 <a class="" href="#">
                     <span>Feed</span></a>
             </li>
-            <li>
-                <a class="flex flex-col items-center justify-center py-2 font-bold transition-all duration-300 hover:text-slate-300 hover:bg-slate-800"
-                    href="{{ secure_url(route('products')) }}">Products</a>
-            </li>
+
             <li
                 class="flex flex-col items-center justify-center py-2 font-bold transition-all duration-300 hover:text-slate-300 hover:bg-slate-800">
                 <a class="" href="{{ route('terms') }}">

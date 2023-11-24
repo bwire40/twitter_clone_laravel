@@ -36,10 +36,7 @@
                 <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400"
                     href="{{ route('terms') }}">Terms</a>
             </li>
-            <li>
-                <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400"
-                    href="{{ secure_url(route('products')) }}">Products</a>
-            </li>
+
             <li>
                 <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
                     href="#">Sign Up</a>

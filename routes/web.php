@@ -28,10 +28,12 @@ Route::get('/terms', [DashboardController::class, 'terms'])->name('terms');
 Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
 
 
-// delete idea
-Route::delete('/idea/{id}', [IdeaController::class, 'destroy'])->name('idea.destroy');
+// delete idea route
+Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.destroy');
 
+// show the idea
+Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('idea.show');
 
-// route for products
-Route::get('/products', [ProductController::class, 'index'])->name('products');
-Route::post('/products', [ProductController::class, 'store'])->name('products.create');
+// edit and update idea route
+Route::get('/idea/{idea}/edit', [IdeaController::class, 'edit'])->name('idea.edit');
+Route::put('/idea/{idea}', [IdeaController::class, 'update'])->name('idea.update');
