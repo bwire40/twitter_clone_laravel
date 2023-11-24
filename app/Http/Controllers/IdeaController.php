@@ -12,7 +12,6 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -52,7 +51,6 @@ class IdeaController extends Controller
      */
     public function show(idea $idea)
     {
-
 
         $show = true;
 

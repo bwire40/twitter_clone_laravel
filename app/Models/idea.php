@@ -11,9 +11,14 @@ class idea extends Model
 
     use HasFactory;
 
-
-
     protected $fillable = [
         "content", "likes",
     ];
+
+
+    // create a relationship between the twit and comment
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

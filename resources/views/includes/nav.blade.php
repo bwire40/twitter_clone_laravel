@@ -22,7 +22,7 @@
       md:pt-0">
             <li>
                 <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400"
-                    href="{{ secure_url(route('home')) }}">Twits</a>
+                    href="{{ secure_url(route('ideas')) }}">Twits</a>
             </li>
             <li>
                 <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400"

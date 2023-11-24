@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ProductController;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +33,16 @@ Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
 // delete idea route
 Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.destroy');
 
+// ideas
+Route::get('/idea', [IdeaController::class, 'index'])->name('ideas');
+
 // show the idea
 Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('idea.show');
+
 
 // edit and update idea route
 Route::get('/idea/{idea}/edit', [IdeaController::class, 'edit'])->name('idea.edit');
 Route::put('/idea/{idea}', [IdeaController::class, 'update'])->name('idea.update');
+
+// idea comments routes
+Route::post('/idea/{idea}/comments', [CommentController::class, 'store'])->name('idea.comments.create');

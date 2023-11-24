@@ -3,7 +3,7 @@
         <ul class="flex-col items-center justify-center gap-2 w-full">
             <li
                 class="flex flex-col items-center justify-center py-2 font-bold transition-all duration-300 hover:text-slate-300 hover:bg-slate-800">
-                <a class=" text-blue-600" href="{{ route('home') }}">
+                <a class=" text-blue-600" href="{{ secure_url(route('home')) }}">
                     <span>Home</span></a>
             </li>
             <li

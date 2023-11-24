@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\idea;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     //index function
-    public function index()
+    public function index(Request $request)
     {
         // dump(Idea::all());
 
@@ -16,15 +17,16 @@ class DashboardController extends Controller
         // check search value with db
 
         $ideas = Idea::orderBy('created_at', 'DESC'); //fetch data from database
+        // $comments = Comment::orderBy('created_at', 'DESC');
 
         if (request()->has("search")) {
-            $ideas = $ideas->where("content", "like", '%' . request()->get("search", '') . '%');
+            $ideas = $ideas->where("content", "like", '%' . $request->get("search", '') . '%');
         }
 
-        $show = true;
+        $show = false;
         return view("dashboard", [
             "ideas" => $ideas->paginate(5), //ordered by the time created
-            "show" => $show
+            "show" => $show,
         ]);
     }
 

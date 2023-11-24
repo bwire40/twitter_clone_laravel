@@ -92,36 +92,6 @@
         </div>
 
         {{-- comments --}}
-        <div>
-            <div class="mb-3">
-                <textarea class="fs-6 form-control" rows="1"></textarea>
-            </div>
-            <div class="mb-3">
-                <button class="bg-blue-600 text-white p-3 w-fit rounded-lg text-lg"> Post Comment
-                </button>
-            </div>
-
-            <hr>
-            <div class="flex items-start">
-                <img style="width:35px" class="me-2 rounded-full"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Luigi" alt="Luigi Avatar">
-                <div class="w-100">
-                    <div class="flex justify-between">
-                        <h6 class="font-bold">Luigi
-                        </h6>
-                        <small class="fw-light text-slate-600 font-semibold"> 3 hour
-                            ago</small>
-                    </div>
-                    <p class="mt-3 text-slate-700">
-                        And 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
-                        Evil)
-                        by
-                        Cicero, written in 45 BC. This book is a treatise on the theory of ethics,
-                        very
-                        popular during the Renaissan.
-                    </p>
-                </div>
-            </div>
-        </div>
+        @include('shared.comments')
     </div>
 </div>
