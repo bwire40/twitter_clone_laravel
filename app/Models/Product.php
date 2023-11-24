@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
 
-    // filables
+    // fillable property to tell laravel what columns are mass assignable
     protected $fillable = [
         "name",
         "description",

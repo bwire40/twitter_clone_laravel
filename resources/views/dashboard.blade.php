@@ -14,9 +14,9 @@
         {{-- content section --}}
         <div class="w-full px-4 lg:w-6/12 mx-4">
 
-            {{-- toast start --}}
+            {{-- flash success --}}
             @include('shared.success_message')
-            {{-- toast end --}}
+            {{-- flash success end --}}
 
             {{-- submit form --}}
             @include('shared.submit_idea')
@@ -34,6 +34,8 @@
 
                 </div>
             @endforeach
+
+            {{-- pagination buttons using the links method --}}
             {{ $ideas->links() }}
         </div>
 

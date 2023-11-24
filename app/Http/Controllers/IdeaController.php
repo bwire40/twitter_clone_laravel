@@ -31,7 +31,9 @@ class IdeaController extends Controller
         //store/create our idea
 
 
-        // validate the data
+        // validate the data to limiit incorrect inputs
+
+        // request function helps access the request from browser similar to $_POST
         request()->validate([
             "content" => "required|min:5|max:255",
         ]);
@@ -39,6 +41,7 @@ class IdeaController extends Controller
         // create the idea
         $idea = Idea::create([
             "content" => request()->get("content"),
+
         ]);
 
         return redirect()->route("home")->with("success", "Twit posted successfully!");

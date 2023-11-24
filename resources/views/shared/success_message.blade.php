@@ -1,3 +1,4 @@
+{{-- check the success session if available --}}
 @if (session()->has('success'))
     <div id="toast-success"
         class="flex items-center w-full max-w-xs p-4 mb-4 text-green-200 bg-slate-600 rounded-lg shadow dark:text-slate-800 dark:bg-slate-500"

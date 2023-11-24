@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      *
-     * sample product
+     * sample product table
      * name
      * description
      * price
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->unsignedDouble('price');
-            $table->timestamps();
+            $table->timestamps(); //created at and updated_at
         });
     }
 

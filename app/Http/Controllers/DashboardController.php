@@ -10,11 +10,6 @@ class DashboardController extends Controller
     //index function
     public function index()
     {
-
-
-
-
-
         // dump(Idea::all());
 
         return view("dashboard", [

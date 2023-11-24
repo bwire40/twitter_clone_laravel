@@ -15,15 +15,19 @@ class ProductController extends Controller
         //index page
 
         // pass data from the database
-        //Create out product
+
+
+        //Create our product
         $products = Product::create([
             "name" => 'Shirts',
             'description' => 'A sample shirt',
-            'price' => 2000,
+            'price' => 100,
 
         ]);
 
-        $products = Product::orderBy("created_at", "desc");
+        // $products = Product::all();
+        // dump($products);
+        $products = Product::orderBy("created_at", "desc")->get();
 
         return view("products.index", [
             "products" => $products,
