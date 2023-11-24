@@ -8,14 +8,20 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * create the twits table
+     * content varchar 255
+     * likes unasigned integer
+     * created_at timestamp
+     * updated_attimestamp
      */
     public function up(): void
     {
         Schema::create('ideas', function (Blueprint $table) {
-            $table->id();
-            $table->string('content');
+            $table->id(); //table id
+            $table->string('content'); //content column
             $table->unsignedInteger('likes')->default(0);
-            $table->timestamps();
+            $table->timestamps(); //created at and updated at
         });
     }
 

@@ -4,10 +4,11 @@
     <form action="{{ secure_url(route('idea.create')) }}" method="post">
         {{-- @csrf to prevent csrf attacks --}}
         @csrf
-        <div class="mb-3">
-            <textarea name="content" class="border-2 border-gray-400 p-2 text-lg text-slate-600" id="idea" rows="3"
-                cols="24" placeholder="..."></textarea>
+        <div class="mb-3 w-full">
+            <textarea name="content" class="w-full border-2 border-gray-400 p-2 text-lg text-slate-600" id="idea" cols="100%"
+                placeholder="..."></textarea>
 
+            <br>
 
             @error('content')
                 <span class="text-red-500 font-semibold">

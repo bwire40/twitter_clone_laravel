@@ -31,7 +31,6 @@ class IdeaController extends Controller
         //store/create our idea
 
 
-
         // validate the data
         request()->validate([
             "content" => "required|min:5|max:255",
