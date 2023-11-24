@@ -33,14 +33,13 @@ class IdeaController extends Controller
         // validate the data to limiit incorrect inputs
 
         // request function helps access the request from browser similar to $_POST
-        request()->validate([
+        $validated = $request->validate([
             "content" => "required|min:5|max:255",
         ]);
 
         // create the idea
-        $idea = Idea::create([
-            "content" => request()->get("content"),
-
+        Idea::create([
+            "content" => $validated,
         ]);
 
         return redirect()->route("home")->with("success", "Twit posted successfully!");
@@ -74,9 +73,11 @@ class IdeaController extends Controller
      */
     public function update(Request $request, idea $idea)
     {
-        //
-        $idea->content = $request->get("content", "");
-        $idea->save(); //save changes
+        //update
+        $validated = $request->validate([
+            "content" => "required|min:5|max:255",
+        ]);
+        $idea->update($validated);
 
         return redirect()->route("idea.show", $idea->id)->with("success", "Idea Updated successfully!");
     }

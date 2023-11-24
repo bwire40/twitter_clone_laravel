@@ -1,19 +1,19 @@
 <div class="mt-10">
-
-    <form action="{{ secure_url(route('idea.comments.create', $idea->id)) }}" method="post">
-        @csrf
-        <div class="mb-3">
-            <textarea name="comment" class="fs-6 form-control" rows="1" placeholder="Write Comment"></textarea>
-        </div>
-        <div class="mb-3">
-            <button type="submit" class="bg-blue-600 text-white p-3 w-fit rounded-lg text-lg"> Post Comment
-            </button>
-        </div>
-
-    </form>
-    <hr>
-
     @if ($show)
+        <form action="{{ secure_url(route('idea.comments.create', $idea->id)) }}" method="post">
+            @csrf
+            <div class="mb-3">
+                <textarea name="comment" class="fs-6 form-control" rows="1" placeholder="Write Comment"></textarea>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="bg-blue-600 text-white p-3 w-fit rounded-lg text-lg"> Post Comment
+                </button>
+            </div>
+
+        </form>
+        <hr>
+
+
         @foreach ($idea->comments as $comment)
             <div class="flex items-start justify-between w-full">
                 <img style="width:35px" class="me-2 rounded-full"

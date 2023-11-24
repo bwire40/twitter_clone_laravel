@@ -11,6 +11,10 @@ class idea extends Model
 
     use HasFactory;
 
+
+    // guarded does not allow mass assignment
+
+    // mass assign these fileds
     protected $fillable = [
         "content", "likes",
     ];
