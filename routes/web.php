@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 
@@ -46,3 +47,12 @@ Route::put('/idea/{idea}', [IdeaController::class, 'update'])->name('idea.update
 
 // idea comments routes
 Route::post('/idea/{idea}/comments', [CommentController::class, 'store'])->name('idea.comments.create');
+
+
+// users
+// registration
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register', [UserController::class, 'store']);
+
+// login
+Route::get('/login', [UserController::class, 'login'])->name('login');
