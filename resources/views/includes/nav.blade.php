@@ -37,14 +37,35 @@
                     href="{{ route('terms') }}">Terms</a>
             </li>
 
-            <li>
-                <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
-                    href="#">Sign Up</a>
-            </li>
-            <li>
-                <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
-                    href="#">Sign In</a>
-            </li>
+            {{-- if not logged in --}}
+            @guest
+                <li>
+                    <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
+                        href="{{ secure_url(route('register')) }}">Sign Up</a>
+                </li>
+                <li>
+                    <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
+                        href="{{ secure_url(route('login')) }}">Sign In</a>
+                </li>
+            @endguest
+
+            {{-- if loggoed in --}}
+            @auth
+
+                <li>
+                    <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
+                        href="">Hi, {{ Auth::user()->name }}</a>
+                </li>
+                <li>
+                    {{-- <a class="text-lg transition-all duration-300 md:p-4 py-2 block hover:text-slate-400 text-blue-500"
+                        href="{{ secure_url(route('logout')) }}">Sign Out</a> --}}
+
+                    <form action="{{ secure_url(route('logout')) }}" method="post">
+                        @csrf
+                        <button type="submit" class="text-indigo-400">Sign Out</button>
+                    </form>
+                </li>
+            @endauth
             <li>
 
                 <!-- This is the button that toggles the theme -->

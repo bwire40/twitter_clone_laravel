@@ -6,29 +6,32 @@
                     <img style="width:50px" class="mr-3 rounded-full rounded-circle"
                         src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
                     <div>
-                        <h5 class="mb-0"><a href="#"> Mario
+                        <h5 class="mb-0"><a href="#"> {{ $idea->user->name }}
                             </a></h5>
                     </div>
                 </div>
 
                 <div class="w-4/12 flex justify-between items-center">
 
-                    <form action="{{ route('idea.destroy', $idea->id) }}" method="post">
-                        @csrf
-                        {{-- spoof the request to delete method --}}
-                        @method('delete')
-                        <button class="font-semibold text-red-500" title="delete"><x-icons.trash /></button>
-                    </form>
+                    @auth
+
+                        <form action="{{ route('idea.destroy', $idea->id) }}" method="post">
+                            @csrf
+                            {{-- spoof the request to delete method --}}
+                            @method('delete')
+                            <button class="font-semibold text-red-500" title="delete"><x-icons.trash /></button>
+                        </form>
 
 
-                    @if ($show)
-                        <a href="{{ route('idea.edit', $idea->id) }}">
-                            <button class="font-semibold text-green-500" title="Edit"><x-icons.pencil-alt /></button>
-                            {{-- <x-icons.pencil-alt />V --}}
-                        </a>
-                    @else
-                        <div></div>
-                    @endif
+                        @if ($show)
+                            <a href="{{ route('idea.edit', $idea->id) }}">
+                                <button class="font-semibold text-green-500" title="Edit"><x-icons.pencil-alt /></button>
+                                {{-- <x-icons.pencil-alt />V --}}
+                            </a>
+                        @else
+                            <div></div>
+                        @endif
+                    @endauth
 
 
                     <a href="{{ route('idea.show', $idea->id) }}">

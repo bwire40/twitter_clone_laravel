@@ -37,9 +37,13 @@ class IdeaController extends Controller
             "content" => "required|min:5|max:255",
         ]);
 
+        // get id of the logged in user
+        $validated['user_id'] = auth()->user()->id;
+
         // create the idea
         Idea::create([
-            "content" => $validated,
+            "content" => $validated["content"],
+            "user_id" => $validated["user_id"]
         ]);
 
         return redirect()->route("home")->with("success", "Twit posted successfully!");
@@ -61,6 +65,9 @@ class IdeaController extends Controller
      */
     public function edit(idea $idea)
     {
+        if (auth()->id() !== $idea->user_id) {
+            abort(404, "cannot edit this pagegit ");
+        }
         //edit page
 
         $editing = true;
@@ -73,6 +80,9 @@ class IdeaController extends Controller
      */
     public function update(Request $request, idea $idea)
     {
+        if (auth()->id() !== $idea->user_id) {
+            abort(404, "cannot update this page");
+        }
         //update
         $validated = $request->validate([
             "content" => "required|min:5|max:255",
@@ -87,6 +97,10 @@ class IdeaController extends Controller
      */
     public function destroy(Idea $idea)
     {
+
+        if (auth()->id() !== $idea->user_id) {
+            abort(404, "Cannot delete this page");
+        }
         $idea->delete();
 
         return redirect()->route("home")->with("success", "Idea deleted Successfully");

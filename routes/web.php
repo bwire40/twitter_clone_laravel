@@ -32,21 +32,21 @@ Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
 
 
 // delete idea route
-Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.destroy');
+Route::delete('/idea/{idea}', [IdeaController::class, 'destroy'])->name('idea.destroy')->middleware('auth');
 
 // ideas
 Route::get('/idea', [IdeaController::class, 'index'])->name('ideas');
 
 // show the idea
-Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('idea.show');
+Route::get('/idea/{idea}', [IdeaController::class, 'show'])->name('idea.show')->middleware('auth');
 
 
 // edit and update idea route
-Route::get('/idea/{idea}/edit', [IdeaController::class, 'edit'])->name('idea.edit');
-Route::put('/idea/{idea}', [IdeaController::class, 'update'])->name('idea.update');
+Route::get('/idea/{idea}/edit', [IdeaController::class, 'edit'])->name('idea.edit')->middleware('auth');
+Route::put('/idea/{idea}', [IdeaController::class, 'update'])->name('idea.update')->middleware('auth');
 
 // idea comments routes
-Route::post('/idea/{idea}/comments', [CommentController::class, 'store'])->name('idea.comments.create');
+Route::post('/idea/{idea}/comments', [CommentController::class, 'store'])->name('idea.comments.create')->middleware('auth');
 
 
 // users
@@ -56,3 +56,7 @@ Route::post('/register', [UserController::class, 'store']);
 
 // login
 Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'authenticate']);
+
+// logout
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
